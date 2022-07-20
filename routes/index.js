@@ -120,10 +120,11 @@ router.get('/tron-pay', ensureAuthenticated, (req, res) =>
   })
 );
 
-
-
-
-
+router.get('/deposit-success', ensureAuthenticated, (req, res) =>
+  res.render('deposit', {
+    user: req.user
+  })
+);
 router.get('/history', ensureAuthenticated, (req, res) =>
   res.render('history', {
     user: req.user
@@ -134,6 +135,12 @@ router.get('/withdrawal', ensureAuthenticated, (req, res) =>
     user: req.user
   })
 );
+router.get('/withdrawal-success', ensureAuthenticated, (req, res) =>
+  res.render('success', {
+    user: req.user
+  })
+);
+
 router.get('/analytics', ensureAuthenticated, (req, res) =>
   res.render('analytics', {
     user: req.user
